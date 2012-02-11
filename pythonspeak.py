@@ -42,7 +42,7 @@ logging.basicConfig(level=logging.ERROR, format='%(levelname)-8s %(message)s')
 def main():
     print('Do you speak Python?')
     print('')
-    print('You need XMPP account (GMail, Jabber.org, et cetera).')
+    print('You need XMPP account (Gmail, Jabber.org, et cetera).')
     
     # Get user settings
     username = input('Username*: ').strip()
