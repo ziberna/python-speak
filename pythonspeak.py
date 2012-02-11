@@ -31,6 +31,7 @@
 
 import logging
 import getpass
+import random
 
 from pythonspeak import PythonSpeak
 
@@ -54,7 +55,7 @@ def main():
     
     room = input('Room: ')
     if not room:
-        room = 'py2971'
+        room = 'python-speak' + str(random.randint(1000,9999))
     if '@' not in room:
         room += '@conference.jabber.org'
         

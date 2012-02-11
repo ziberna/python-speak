@@ -43,9 +43,9 @@ class PythonScript(script.ScriptBase):
         Returns appropriate prompt string.
         """
         if self.status == script.MORE:
-            return ('... ')
+            return '... '
         else:
-            return ('>>> ')
+            return '>>> '
 
 
 class PythonSpeak(speak.SpeakBase):
