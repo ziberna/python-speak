@@ -45,7 +45,7 @@ def main():
     print('You need XMPP account (GMail, Jabber.org, et cetera).')
     
     # Get user settings
-    username = input('Username*: ')
+    username = input('Username*: ').strip()
     if not username:
         return
     if '@' not in username:
@@ -53,13 +53,13 @@ def main():
     
     password = getpass.getpass('Password*: ')
     
-    room = input('Room: ')
+    room = input('Room: ').strip()
     if not room:
         room = 'python-speak' + str(random.randint(1000,9999))
     if '@' not in room:
         room += '@conference.jabber.org'
         
-    nickname = input('Nickname: ')
+    nickname = input('Nickname: ').strip()
     if not nickname:
         nickname, _, _ = username.partition('@')
     
