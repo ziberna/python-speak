@@ -3,7 +3,7 @@ Do you speak Python?
 
 __PythonSpeak__ is XMPP-room-based chat client with a twist -- you must speak in
 Python! It works like Python's interactive shell, but everything you type is
-send to the chat room and added to the Python shell of everybody in the room.
+sent to your chat room and added to the Python shell of everybody in the room.
 You can write whole classes together, one line at the time. In result, you have
 a pseudo-shared state of your script. __It might be best described as shared
 Python shell__.
