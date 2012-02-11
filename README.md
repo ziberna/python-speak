@@ -12,9 +12,10 @@ PythonSpeak is just an experiment at the moment. It _does_ work (for me at
 least), but the code isn't pretty.
 
 
---------------------------------------------------------------------------------
+Try it
+------
 
-To try it, clone the repo, then:
+Clone the repo, then:
 
     $ python pythonspeak.py
 
@@ -34,11 +35,56 @@ This is to provide dynamic prompt (which changes based on input state) and to
 prevent cursor misplacement when you receive a message from another user.
 
 
+Chat session example
+---------------------
+
+This is me having two terminals opened, where I connected to the same room with
+two different XMPP accounts. The shell "conversation" looks the same on both
+sides.
+
+	[jure@Kant python-speak]$ python pythonspeak.py
+	Do you speak Python?
+	
+	You need XMPP account (Gmail, Jabber.org, et cetera).
+	Username*: j.ziberna@gmail.com
+	Password*: 
+	Room: python-speak2971
+	Nickname: jure
+
+	Connecting...
+	Getting roster...
+	Sending presence...
+	Joining the room...
+	Getting room configuration...
+	Room already there.
+	Joined room python-speak2971@conference.jabber.org.
+
+	todd>>> # got online
+	jure>>> a = 3
+	todd>>> a
+	3
+	jure>>> def square(n):
+	todd...     # this is such a cliche example
+	jure...     # i know
+	todd...     return n * n
+	todd...
+	jure>>> square(a)
+	9
+	todd>>> # i'm just going to import math
+	jure>>> import math # first!
+	todd>>> # logging out...
+	jure>>> #exit
+
+	Disconnecting...
+	[jure@Kant python-speak]$ 
+
+
+
 --------------------------------------------------------------------------------
 
 Requirements:
 
- - XMPP account (GMail, Jabber.org, et cetera)
+ - XMPP account (Gmail, Jabber.org, et cetera)
 
 
 Dependencies:
