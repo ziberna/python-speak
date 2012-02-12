@@ -18,6 +18,8 @@ __NOTE__: These modules have been blacklisted:
 
 That means nobody in the chat room can use them. It does not matter if the
 sender is using PythonSpeak or not, because the code is checked on receive.
+BlacklistedError is raised when someone tries to use any of the blacklisted
+modules.
 
 
 Try it
