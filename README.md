@@ -11,6 +11,14 @@ Python shell__.
 PythonSpeak is just an experiment at the moment. It _does_ work (for me at
 least), but the code isn't pretty.
 
+__NOTE__: These modules have been blacklisted:
+
+ - os
+ - subprocess
+
+That means nobody in the chat room can use them. It does not matter if the
+sender is using PythonSpeak or not, because the code is checked on receive.
+
 
 Try it
 ------
@@ -19,16 +27,11 @@ Clone the repo, then:
 
     $ python pythonspeak.py
 
-__WARNING__: PythonSpeak does NOT yet provide any security against someone
-entering malicious Python code. Create a new room for yourself to test it on
-your own (i.e. type some random string on room input). Run in a virtual machine
-if you want to be extra careful.
-
 You can still test the project if you have only one XMPP account to play with.
 Every piece of code is executed on receive. This is intended -- you get a
-vague feeling when others received the message. So just type anything into the
-shell. If PythonSpeak works, it will be sent to the chat room and executed when
-you get the code back from the chat room.
+feeling when others received the message. So just type anything into the shell.
+If PythonSpeak works, it will be sent to the chat room and executed when you get
+the code back from the chat room.
 
 The shell interface is currently coded with the help of backspace characters.
 This is to provide dynamic prompt (which changes based on input state) and to
