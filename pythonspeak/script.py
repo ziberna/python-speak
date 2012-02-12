@@ -23,6 +23,7 @@ import codeop
 import traceback
 import contextlib
 import readline
+import re
 
 compile = codeop.compile_command
 
@@ -30,6 +31,31 @@ compile = codeop.compile_command
 DONE = 0
 MORE = 1
 ERROR = -1
+
+BLACKLIST = (
+    'os',
+    'subprocess',
+)
+
+def blacklisted(string):
+    pattern = '(%s)' % '|'.join(BLACKLIST)
+    for match in re.finditer(pattern, string):
+        start = match.start()
+        end = match.end()
+        if start > 0 and re.search('^[a-zA-Z0-9]$', string[start-1]):
+            continue
+        if end < len(string) and re.search('^[a-zA-Z0-9]$', string[end]):
+            continue
+        return string[start:end]
+    return None
+
+
+class BlacklistedError(Exception):
+    def __init__(self, module):
+        self.module = module
+    
+    def __str__(self):
+        return 'This module was blacklisted: ' + self.module
 
 
 class ScriptBase(object):
@@ -47,11 +73,15 @@ class ScriptBase(object):
         self.namespace = namespace
         self.file = file
         self.status = DONE
+        namespace['BlacklistedError'] = BlacklistedError
     
     def add(self, line):
         """
         Add a line to the source buffer. Clear the buffer on successful compile.
         """
+        black_module = blacklisted(line)
+        if black_module is not None:
+            line = 'raise BlacklistedError("%s")' % black_module
         self.source_buffer += line
         # compile
         compiled = self.compile(self.source_buffer)
